@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 
@@ -20,17 +21,17 @@ class ProductController extends Controller
         return view('admin.product.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+        $request->validated();
         $data = $request->except('_token', 'submit');
         $product = (new ProductService())->create($data);
         return redirect()->route('admin.products.index')
             ->with('success', 'Produto cadastrado com sucesso!');
     }
 
-    public function edit(Request $request, $product_id)
+    public function edit($product_id)
     {
-        $customer = $request->customer_id;
         $product = (new ProductService())->getProductById($product_id);
         $product->price = str_replace('.', ',', $product->price);
         return view('admin.product.edit')
@@ -39,7 +40,7 @@ class ProductController extends Controller
 
     public function update(Request $request, $product_id)
     {
-        $customer = $request->customer_id;
+        $request->validated();
         $data = $request->except('_token', 'submit');
         $value = str_replace('.', '', $data['price']);
         $data['price'] = str_replace(',', '.', $value);
@@ -50,9 +51,8 @@ class ProductController extends Controller
             ->with('success', 'Produto atualizado com sucesso!');
     }
 
-    public function destroy(Request $request, $product_id)
+    public function destroy($product_id)
     {
-        $customer = $request->customer_id;
         $product = (new ProductService())->getProductById($product_id);
         $product->delete();
         return redirect()->route('admin.products.index')
