@@ -12,9 +12,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $index => $product)
+                        @foreach ($products as $product)
                             <tr>
-                                <td>{{ $index+1 }}</td>
+                                <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td class=".money-format">{{ $product->price }}</td>
                                 <td>

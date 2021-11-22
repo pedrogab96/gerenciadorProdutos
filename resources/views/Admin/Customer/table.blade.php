@@ -5,6 +5,7 @@
                 <table class="table" id="datatable">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Nome</th>
                             <th>Email</th>
                             <th>Telefone</th>
@@ -14,6 +15,7 @@
                     <tbody>
                         @foreach ($customers as $customer)
                             <tr>
+                                <td>{{ $customer->id }}</td>
                                 <td>{{ $customer->name }}</td>
                                 <td>{{ $customer->email }}</td>
                                 <td>{{ $customer->telephone }}</td>
@@ -36,12 +38,6 @@
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
                 },
-                "columnDefs": [{
-                    "render": function(phone){
-                        return phone.toString().replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');    
-                    },
-                    "targets": [2]
-                }],
             });
         });
     </script>
