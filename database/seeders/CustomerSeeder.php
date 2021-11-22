@@ -17,7 +17,7 @@ class CustomerSeeder extends Seeder
         Customer::create([
             'name' => 'Pedro Gabriel Silva de Lima',
             'email' => 'pedrogab96@gmail.com',
-            'phone' => '84992215332',
+            'telephone' => '84992215332',
             'address' => 'Avenida dos Pinherais, 325',
         ]);
     }
