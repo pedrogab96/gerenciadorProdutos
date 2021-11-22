@@ -6,18 +6,21 @@ use App\Models\Product;
 
 class ProductService
 {
-    public function getAll()
+    public function getProducts()
     {
         return Product::all();
     }
 
-    public function getById($id)
+    public function getProductById($id)
     {
         return Product::find($id);
     }
-    
+
     public function create(array $data)
     {
+        $value = str_replace('R$ ', '', $data['price']);
+        $value = str_replace('.', '', $value);
+        $data['price'] = str_replace(',', '.', $value);
         return Product::create($data);
     }
 
