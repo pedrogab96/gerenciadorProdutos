@@ -20,6 +20,13 @@ Para a instalação das dependências do javascript rode
 
 ```$ npm install ou yarn install```
 
+No diretorio do projeto no console utilize o seguinte comando para criar uma copia do .env para o ambiente de desenvolvimento:
+    
+```$ copy .env.example .env```
+
+No diretorio do projeto no console utilize o seguinte comando 
+
+```$ php artisan key:generate```
 ### Preparando o banco de dados
 
 Crie um banco mysql vazio e execute as migrations
