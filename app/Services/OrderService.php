@@ -25,8 +25,8 @@ class OrderService
     {
         $productIds = collect($params['products'])->pluck('id')->toArray();
         $order = new Order();
-        $order->customer_id = $params['customer_id'];
-        $order->status = $params['status'] ?? 'pending';
+        $order->customer_id = $params['customer'];
+        $order->status = $params['status'];
         $order->save();
         $order->products()->attach($productIds);
         $total_price = $order->products()->sum('price');
