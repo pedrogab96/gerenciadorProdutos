@@ -14,10 +14,15 @@ class OrderService
         return $order;
     }
 
+    public function getOrder($order_id)
+    {
+        return Order::find($order_id);
+    }
+
     public function show($order_id)
     {
         $order = Order::find($order_id);
-        $order->products = $order->products()->get();
+        $order->products = $order->products()->get() ?? [];
         return $order;
     }
 
@@ -41,6 +46,9 @@ class OrderService
         $order->status = $params['status'];
         $order->save();
         $order->products()->sync($productIds);
+        $total_price = $order->products()->sum('price');
+        $order->total_price = $total_price;
+        $order->save();
     }
 
     public function delete($order_id)
