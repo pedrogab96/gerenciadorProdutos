@@ -13,9 +13,8 @@ class OrderController extends Controller
         $this->customerService = $customerService;
     }
         
-    public function index(Request $request)
+    public function index()
     {
-        $customer = $request->customer_id;
         $orders = $this->customerService->getOrders();
         return view('admin.order.index')
             ->with('orders', $orders);
