@@ -6,7 +6,7 @@
 
 
 @section('content')
-    {{-- @include('admin.customer.table') --}}
+    @include('admin.order.table')
 @stop
 
 
