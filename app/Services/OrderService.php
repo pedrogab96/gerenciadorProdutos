@@ -9,8 +9,7 @@ class OrderService
     public function getOrders()
     {
         $order = Order::join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->select('orders.*', 'customers.name as customer_name')
-            ->get();
+            ->select('orders.*', 'customers.name as customer_name');
         return $order;
     }
 
