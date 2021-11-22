@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/customer/create', [App\Http\Controllers\Api\CustomerController::class, 'create'])->name('api.user.create');
 
-// Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
-Route::post('/customer/create', [App\Http\Controllers\Api\CustomerController::class, 'create'])->name('user.create');
+Route::get('/orders', [App\Http\Controllers\Api\OrderController::class, 'index'])->name('api.order.create');
+Route::post('/orders/create', [App\Http\Controllers\Api\OrderController::class, 'create'])->name('api.order.create');
+Route::get('/orders/{order_id}/show', [App\Http\Controllers\Api\OrderController::class, 'show'])->name('api.order.show');
+Route::put('/orders/{order_id}/update', [App\Http\Controllers\Api\OrderController::class, 'update'])->name('api.order.update');
+Route::delete('/orders/{order_id}/delete', [App\Http\Controllers\Api\OrderController::class, 'delete'])->name('api.order.delete');
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/produtos', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/produtos/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.create');
     Route::post('/produtos/store', [App\Http\Controllers\Admin\ProductController::class, 'store'])->name('admin.products.store');
-    Route::get('/produtos/edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
-    Route::put('/produtos/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.products.update');
-    Route::delete('/produtos/apagar/{id}', [App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('admin.products.destroy');
+    Route::get('/produtos/{product_id}/edit', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::put('/produtos/{product_id}/update', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.products.update');
+    Route::delete('/produtos/{product_id}/apagar', [App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('admin.products.destroy');
 });
