@@ -1,0 +1,259 @@
+name: Order
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/orders/create
+    metadata:
+      title: 'Create a new order.'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      customer:
+        name: customer
+        description: 'Customer id.'
+        required: true
+        example: 18
+        type: integer
+      status:
+        name: status
+        description: Status.
+        required: true
+        example: sit
+        type: string
+      products:
+        name: products
+        description: Products.
+        required: true
+        example:
+          - quo
+        type: 'string[]'
+      'products[].id':
+        name: 'products[].id'
+        description: 'Product id.'
+        required: true
+        example: 4
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Order created successfully"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/orders/{order_id}/update'
+    metadata:
+      title: 'Update an order.'
+      description: 'it is necessary that the user is the owner of the order'
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 13
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      customer:
+        name: customer
+        description: 'Customer id.'
+        required: true
+        example: 11
+        type: integer
+      status:
+        name: status
+        description: 'Must be one of <code>pending</code>, <code>preparing</code>, <code>delivered</code>, or <code>cancelled</code>.'
+        required: true
+        example: pending
+        type: string
+      products:
+        name: products
+        description: Products.
+        required: true
+        example:
+          - magni
+        type: 'string[]'
+      'products[].id':
+        name: 'products[].id'
+        description: 'Product id.'
+        required: true
+        example: 8
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Order updated successfully"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/orders/{order_id}/show'
+    metadata:
+      title: 'Show a order'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 13
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      customer:
+        name: customer
+        description: 'Customer id'
+        required: true
+        example: 3
+        type: integer
+    responses:
+      -
+        status: 200
+        content: '{"id":13,"customer_id":11,"total_price":"160.70","status":"delivered","created_at":"2021-11-22T22:07:24.000000Z","updated_at":"2021-11-22T22:07:24.000000Z","products":[{"id":3,"name":"Caleb Schiller","price":"82.90","created_at":"2000-12-14T13:08:59.000000Z","updated_at":"1992-04-28T11:20:07.000000Z","pivot":{"order_id":13,"product_id":3}},{"id":4,"name":"Dr. George Gibson","price":"77.80","created_at":"1977-07-28T16:27:53.000000Z","updated_at":"1970-08-09T03:56:21.000000Z","pivot":{"order_id":13,"product_id":4}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/orders/{order_id}/delete'
+    metadata:
+      title: 'Delete an order.'
+      description: 'it is necessary that the user is the owner of the order'
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 13
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      customer:
+        name: customer
+        description: 'Customer id.'
+        required: true
+        example: 4
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/orders
+    metadata:
+      title: 'Show all orders.'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      customer:
+        name: customer
+        description: 'Customer id'
+        required: true
+        example: 11
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "current_page": 1,
+              "data": [
+                  {
+                      "id": 1,
+                      "customer_id": 2,
+                      "total_price": "77.80",
+                      "status": "cancelled",
+                      "created_at": "2019-07-11T15:27:06.000000Z",
+                      "updated_at": "2021-11-22T18:48:27.000000Z",
+                      "customer_name": "Morton Huel"
+                  },
+                  {
+                      "id": 2,
+                      "customer_id": 3,
+                      "total_price": "53.59",
+                      "status": "completed",
+                      "created_at": "1977-01-06T00:23:43.000000Z",
+                      "updated_at": "2021-11-22T18:48:27.000000Z",
+                      "customer_name": "Prof. Florencio Green"
+                  },
+                  {
+                      "id": 3,
+                      "customer_id": 4,
+                      "total_price": "67.05",
+                      "status": "cancelled",
+                      "created_at": "2003-10-13T20:04:42.000000Z",
+                      "updated_at": "2021-11-22T18:48:27.000000Z",
+                      "customer_name": "Merl Kiehn"
+                  },
+              ],
+              "first_page_url": "http:\/\/127.0.0.1:8000\/api\/orders?page=1",
+              "from": 1,
+              "last_page": 1,
+              "last_page_url": "http:\/\/127.0.0.1:8000\/api\/orders?page=1",
+              "links": [
+                  {
+                      "url": null,
+                      "label": "&laquo; Anterior",
+                      "active": false
+                  },
+                  {
+                      "url": "http:\/\/127.0.0.1:8000\/api\/orders?page=1",
+                      "label": "1",
+                      "active": true
+                  },
+                  {
+                      "url": null,
+                      "label": "Próximo &raquo;",
+                      "active": false
+                  }
+              ],
+              "next_page_url": null,
+              "path": "http:\/\/127.0.0.1:8000\/api\/orders",
+              "per_page": 15,
+              "prev_page_url": null,
+              "to": 10,
+              "total": 10
+          }
+        headers: []
+        description: '200'
+    responseFields: []

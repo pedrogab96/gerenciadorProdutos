@@ -1,0 +1,306 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "4f732b6c-9c99-4e52-b378-71ede1cf6eea",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Customer",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create a new customer",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/create",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/customer\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"officiis\",\"email\":\"sunt\",\"telephone\":\"adipisci\",\"address\":\"harum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"name\": \"Gabriel\",\n    \"telephone\": \"849221533\",\n    \"email\": \"gabriel@gmail.com\",\n    \"address\": \"Avenida dos pinheirais\",\n    \"updated_at\": \"2021-11-22T22:15:24.000000Z\",\n    \"created_at\": \"2021-11-22T22:15:24.000000Z\",\n    \"id\": 12\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create a new order.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/orders\/create",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/orders\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customer\":18,\"status\":\"sit\",\"products\":[\"quo\"]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Order created successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update an order.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/orders\/:order_id\/update",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/orders\/:order_id\/update",
+                            "variable": [
+                                {
+                                    "id": "order_id",
+                                    "key": "order_id",
+                                    "value": "13",
+                                    "description": "The ID of the order."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customer\":11,\"status\":\"pending\",\"products\":[\"magni\"]}"
+                        },
+                        "description": "it is necessary that the user is the owner of the order",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Order updated successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show a order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/orders\/:order_id\/show",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/orders\/:order_id\/show",
+                            "variable": [
+                                {
+                                    "id": "order_id",
+                                    "key": "order_id",
+                                    "value": "13",
+                                    "description": "The ID of the order."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customer\":3}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"id\":13,\"customer_id\":11,\"total_price\":\"160.70\",\"status\":\"delivered\",\"created_at\":\"2021-11-22T22:07:24.000000Z\",\"updated_at\":\"2021-11-22T22:07:24.000000Z\",\"products\":[{\"id\":3,\"name\":\"Caleb Schiller\",\"price\":\"82.90\",\"created_at\":\"2000-12-14T13:08:59.000000Z\",\"updated_at\":\"1992-04-28T11:20:07.000000Z\",\"pivot\":{\"order_id\":13,\"product_id\":3}},{\"id\":4,\"name\":\"Dr. George Gibson\",\"price\":\"77.80\",\"created_at\":\"1977-07-28T16:27:53.000000Z\",\"updated_at\":\"1970-08-09T03:56:21.000000Z\",\"pivot\":{\"order_id\":13,\"product_id\":4}}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete an order.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/orders\/:order_id\/delete",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/orders\/:order_id\/delete",
+                            "variable": [
+                                {
+                                    "id": "order_id",
+                                    "key": "order_id",
+                                    "value": "13",
+                                    "description": "The ID of the order."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customer\":4}"
+                        },
+                        "description": "it is necessary that the user is the owner of the order",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show all orders.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/orders",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/orders"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"customer\":11}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"customer_id\": 2,\n            \"total_price\": \"77.80\",\n            \"status\": \"cancelled\",\n            \"created_at\": \"2019-07-11T15:27:06.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Morton Huel\"\n        },\n        {\n            \"id\": 2,\n            \"customer_id\": 3,\n            \"total_price\": \"53.59\",\n            \"status\": \"completed\",\n            \"created_at\": \"1977-01-06T00:23:43.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Prof. Florencio Green\"\n        },\n        {\n            \"id\": 3,\n            \"customer_id\": 4,\n            \"total_price\": \"67.05\",\n            \"status\": \"cancelled\",\n            \"created_at\": \"2003-10-13T20:04:42.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Merl Kiehn\"\n        },\n    ],\n    \"first_page_url\": \"http:\\\/\\\/127.0.0.1:8000\\\/api\\\/orders?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"http:\\\/\\\/127.0.0.1:8000\\\/api\\\/orders?page=1\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Anterior\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http:\\\/\\\/127.0.0.1:8000\\\/api\\\/orders?page=1\",\n            \"label\": \"1\",\n            \"active\": true\n        },\n        {\n            \"url\": null,\n            \"label\": \"Pr\u00f3ximo &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": null,\n    \"path\": \"http:\\\/\\\/127.0.0.1:8000\\\/api\\\/orders\",\n    \"per_page\": 15,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 10\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

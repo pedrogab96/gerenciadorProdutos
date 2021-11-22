@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.16.0.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.16.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: November 22 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1>Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="customer">Customer</h1>
+
+    
+
+            <h2 id="customer-POSTapi-customer-create">Create a new customer</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-customer-create">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/customer/create" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"officiis\",
+    \"email\": \"sunt\",
+    \"telephone\": \"adipisci\",
+    \"address\": \"harum\"
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/customer/create"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "officiis",
+    "email": "sunt",
+    "telephone": "adipisci",
+    "address": "harum"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-customer-create">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;name&quot;: &quot;Gabriel&quot;,
+    &quot;telephone&quot;: &quot;849221533&quot;,
+    &quot;email&quot;: &quot;gabriel@gmail.com&quot;,
+    &quot;address&quot;: &quot;Avenida dos pinheirais&quot;,
+    &quot;updated_at&quot;: &quot;2021-11-22T22:15:24.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2021-11-22T22:15:24.000000Z&quot;,
+    &quot;id&quot;: 12
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-customer-create" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-customer-create"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-customer-create"></code></pre>
+</span>
+<span id="execution-error-POSTapi-customer-create" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-customer-create"></code></pre>
+</span>
+<form id="form-POSTapi-customer-create" data-method="POST"
+      data-path="api/customer/create"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-customer-create', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-customer-create"
+                    onclick="tryItOut('POSTapi-customer-create');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-customer-create"
+                    onclick="cancelTryOut('POSTapi-customer-create');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-customer-create" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/customer/create</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-customer-create"
+               value="officiis"
+               data-component="body" hidden>
+    <br>
+<p>The name of the customer.</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-customer-create"
+               value="sunt"
+               data-component="body" hidden>
+    <br>
+<p>The email of the customer.</p>
+        </p>
+                <p>
+            <b><code>telephone</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="telephone"
+               data-endpoint="POSTapi-customer-create"
+               value="adipisci"
+               data-component="body" hidden>
+    <br>
+<p>The phone of the customer.</p>
+        </p>
+                <p>
+            <b><code>address</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="address"
+               data-endpoint="POSTapi-customer-create"
+               value="harum"
+               data-component="body" hidden>
+    <br>
+<p>The address of the customer.</p>
+        </p>
+        </form>
+
+        <h1 id="order">Order</h1>
+
+    
+
+            <h2 id="order-POSTapi-orders-create">Create a new order.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-orders-create">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/orders/create" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"customer\": 18,
+    \"status\": \"sit\",
+    \"products\": [
+        \"quo\"
+    ]
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders/create"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "customer": 18,
+    "status": "sit",
+    "products": [
+        "quo"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-orders-create">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Order created successfully&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-orders-create" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-orders-create"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-orders-create"></code></pre>
+</span>
+<span id="execution-error-POSTapi-orders-create" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-orders-create"></code></pre>
+</span>
+<form id="form-POSTapi-orders-create" data-method="POST"
+      data-path="api/orders/create"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-orders-create', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-orders-create"
+                    onclick="tryItOut('POSTapi-orders-create');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-orders-create"
+                    onclick="cancelTryOut('POSTapi-orders-create');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-orders-create" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/orders/create</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>customer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="customer"
+               data-endpoint="POSTapi-orders-create"
+               value="18"
+               data-component="body" hidden>
+    <br>
+<p>Customer id.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="status"
+               data-endpoint="POSTapi-orders-create"
+               value="sit"
+               data-component="body" hidden>
+    <br>
+<p>Status.</p>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>products</code></b>&nbsp;&nbsp;<small>string[]</small>  &nbsp;
+<br>
+<p>Products.</p>
+            </summary>
+                                                <p>
+                        <b><code>products[].id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="products.0.id"
+               data-endpoint="POSTapi-orders-create"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Product id.</p>
+                    </p>
+                                    </details>
+        </p>
+        </form>
+
+            <h2 id="order-PUTapi-orders--order_id--update">Update an order.</h2>
+
+<p>
+</p>
+
+<p>it is necessary that the user is the owner of the order</p>
+
+<span id="example-requests-PUTapi-orders--order_id--update">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/orders/13/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"customer\": 11,
+    \"status\": \"pending\",
+    \"products\": [
+        \"magni\"
+    ]
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders/13/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "customer": 11,
+    "status": "pending",
+    "products": [
+        "magni"
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-PUTapi-orders--order_id--update">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Order updated successfully&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-orders--order_id--update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-orders--order_id--update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-orders--order_id--update"></code></pre>
+</span>
+<span id="execution-error-PUTapi-orders--order_id--update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-orders--order_id--update"></code></pre>
+</span>
+<form id="form-PUTapi-orders--order_id--update" data-method="PUT"
+      data-path="api/orders/{order_id}/update"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-orders--order_id--update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-orders--order_id--update"
+                    onclick="tryItOut('PUTapi-orders--order_id--update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-orders--order_id--update"
+                    onclick="cancelTryOut('PUTapi-orders--order_id--update');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-orders--order_id--update" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/orders/{order_id}/update</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="order_id"
+               data-endpoint="PUTapi-orders--order_id--update"
+               value="13"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the order.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>customer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="customer"
+               data-endpoint="PUTapi-orders--order_id--update"
+               value="11"
+               data-component="body" hidden>
+    <br>
+<p>Customer id.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="status"
+               data-endpoint="PUTapi-orders--order_id--update"
+               value="pending"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>pending</code>, <code>preparing</code>, <code>delivered</code>, or <code>cancelled</code>.</p>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>products</code></b>&nbsp;&nbsp;<small>string[]</small>  &nbsp;
+<br>
+<p>Products.</p>
+            </summary>
+                                                <p>
+                        <b><code>products[].id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="products.0.id"
+               data-endpoint="PUTapi-orders--order_id--update"
+               value="8"
+               data-component="body" hidden>
+    <br>
+<p>Product id.</p>
+                    </p>
+                                    </details>
+        </p>
+        </form>
+
+            <h2 id="order-GETapi-orders--order_id--show">Show a order</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-orders--order_id--show">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/orders/13/show" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"customer\": 3
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders/13/show"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "customer": 3
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-GETapi-orders--order_id--show">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;id&quot;: 13,
+    &quot;customer_id&quot;: 11,
+    &quot;total_price&quot;: &quot;160.70&quot;,
+    &quot;status&quot;: &quot;delivered&quot;,
+    &quot;created_at&quot;: &quot;2021-11-22T22:07:24.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-11-22T22:07:24.000000Z&quot;,
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Caleb Schiller&quot;,
+            &quot;price&quot;: &quot;82.90&quot;,
+            &quot;created_at&quot;: &quot;2000-12-14T13:08:59.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;1992-04-28T11:20:07.000000Z&quot;,
+            &quot;pivot&quot;: {
+                &quot;order_id&quot;: 13,
+                &quot;product_id&quot;: 3
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Dr. George Gibson&quot;,
+            &quot;price&quot;: &quot;77.80&quot;,
+            &quot;created_at&quot;: &quot;1977-07-28T16:27:53.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;1970-08-09T03:56:21.000000Z&quot;,
+            &quot;pivot&quot;: {
+                &quot;order_id&quot;: 13,
+                &quot;product_id&quot;: 4
+            }
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orders--order_id--show" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-orders--order_id--show"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orders--order_id--show"></code></pre>
+</span>
+<span id="execution-error-GETapi-orders--order_id--show" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orders--order_id--show"></code></pre>
+</span>
+<form id="form-GETapi-orders--order_id--show" data-method="GET"
+      data-path="api/orders/{order_id}/show"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders--order_id--show', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orders--order_id--show"
+                    onclick="tryItOut('GETapi-orders--order_id--show');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orders--order_id--show"
+                    onclick="cancelTryOut('GETapi-orders--order_id--show');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orders--order_id--show" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orders/{order_id}/show</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="order_id"
+               data-endpoint="GETapi-orders--order_id--show"
+               value="13"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the order.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>customer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="customer"
+               data-endpoint="GETapi-orders--order_id--show"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Customer id</p>
+        </p>
+        </form>
+
+            <h2 id="order-DELETEapi-orders--order_id--delete">Delete an order.</h2>
+
+<p>
+</p>
+
+<p>it is necessary that the user is the owner of the order</p>
+
+<span id="example-requests-DELETEapi-orders--order_id--delete">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/orders/13/delete" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"customer\": 4
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders/13/delete"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "customer": 4
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-DELETEapi-orders--order_id--delete">
+</span>
+<span id="execution-results-DELETEapi-orders--order_id--delete" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-orders--order_id--delete"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-orders--order_id--delete"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-orders--order_id--delete" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-orders--order_id--delete"></code></pre>
+</span>
+<form id="form-DELETEapi-orders--order_id--delete" data-method="DELETE"
+      data-path="api/orders/{order_id}/delete"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-orders--order_id--delete', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-orders--order_id--delete"
+                    onclick="tryItOut('DELETEapi-orders--order_id--delete');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-orders--order_id--delete"
+                    onclick="cancelTryOut('DELETEapi-orders--order_id--delete');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-orders--order_id--delete" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/orders/{order_id}/delete</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="order_id"
+               data-endpoint="DELETEapi-orders--order_id--delete"
+               value="13"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the order.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>customer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="customer"
+               data-endpoint="DELETEapi-orders--order_id--delete"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Customer id.</p>
+        </p>
+        </form>
+
+            <h2 id="order-GETapi-orders">Show all orders.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-orders">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/orders" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"customer\": 11
+}"
+</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "customer": 11
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+</span>
+
+<span id="example-responses-GETapi-orders">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;current_page&quot;: 1,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;customer_id&quot;: 2,
+            &quot;total_price&quot;: &quot;77.80&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;created_at&quot;: &quot;2019-07-11T15:27:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-11-22T18:48:27.000000Z&quot;,
+            &quot;customer_name&quot;: &quot;Morton Huel&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;customer_id&quot;: 3,
+            &quot;total_price&quot;: &quot;53.59&quot;,
+            &quot;status&quot;: &quot;completed&quot;,
+            &quot;created_at&quot;: &quot;1977-01-06T00:23:43.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-11-22T18:48:27.000000Z&quot;,
+            &quot;customer_name&quot;: &quot;Prof. Florencio Green&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;customer_id&quot;: 4,
+            &quot;total_price&quot;: &quot;67.05&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;created_at&quot;: &quot;2003-10-13T20:04:42.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-11-22T18:48:27.000000Z&quot;,
+            &quot;customer_name&quot;: &quot;Merl Kiehn&quot;
+        },
+    ],
+    &quot;first_page_url&quot;: &quot;http:\/\/127.0.0.1:8000\/api\/orders?page=1&quot;,
+    &quot;from&quot;: 1,
+    &quot;last_page&quot;: 1,
+    &quot;last_page_url&quot;: &quot;http:\/\/127.0.0.1:8000\/api\/orders?page=1&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;url&quot;: null,
+            &quot;label&quot;: &quot;&amp;laquo; Anterior&quot;,
+            &quot;active&quot;: false
+        },
+        {
+            &quot;url&quot;: &quot;http:\/\/127.0.0.1:8000\/api\/orders?page=1&quot;,
+            &quot;label&quot;: &quot;1&quot;,
+            &quot;active&quot;: true
+        },
+        {
+            &quot;url&quot;: null,
+            &quot;label&quot;: &quot;Pr&oacute;ximo &amp;raquo;&quot;,
+            &quot;active&quot;: false
+        }
+    ],
+    &quot;next_page_url&quot;: null,
+    &quot;path&quot;: &quot;http:\/\/127.0.0.1:8000\/api\/orders&quot;,
+    &quot;per_page&quot;: 15,
+    &quot;prev_page_url&quot;: null,
+    &quot;to&quot;: 10,
+    &quot;total&quot;: 10
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orders"></code></pre>
+</span>
+<span id="execution-error-GETapi-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orders"></code></pre>
+</span>
+<form id="form-GETapi-orders" data-method="GET"
+      data-path="api/orders"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orders"
+                    onclick="tryItOut('GETapi-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orders"
+                    onclick="cancelTryOut('GETapi-orders');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orders" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orders</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>customer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="customer"
+               data-endpoint="GETapi-orders"
+               value="11"
+               data-component="body" hidden>
+    <br>
+<p>Customer id</p>
+        </p>
+        </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["bash","javascript"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>

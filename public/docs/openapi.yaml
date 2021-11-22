@@ -1,0 +1,441 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/customer/create:
+    post:
+      summary: 'Create a new customer'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: Gabriel
+                  telephone: '849221533'
+                  email: gabriel@gmail.com
+                  address: 'Avenida dos pinheirais'
+                  updated_at: '2021-11-22T22:15:24.000000Z'
+                  created_at: '2021-11-22T22:15:24.000000Z'
+                  id: 12
+                properties:
+                  name:
+                    type: string
+                    example: Gabriel
+                  telephone:
+                    type: string
+                    example: '849221533'
+                  email:
+                    type: string
+                    example: gabriel@gmail.com
+                  address:
+                    type: string
+                    example: 'Avenida dos pinheirais'
+                  updated_at:
+                    type: string
+                    example: '2021-11-22T22:15:24.000000Z'
+                  created_at:
+                    type: string
+                    example: '2021-11-22T22:15:24.000000Z'
+                  id:
+                    type: integer
+                    example: 12
+      tags:
+        - Customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the customer.'
+                  example: officiis
+                email:
+                  type: string
+                  description: 'The email of the customer.'
+                  example: sunt
+                telephone:
+                  type: string
+                  description: 'The phone of the customer.'
+                  example: adipisci
+                address:
+                  type: string
+                  description: 'The address of the customer.'
+                  example: harum
+              required:
+                - name
+                - email
+                - telephone
+                - address
+      security: []
+  /api/orders/create:
+    post:
+      summary: 'Create a new order.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Order created successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Order created successfully'
+      tags:
+        - Order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: integer
+                  description: 'Customer id.'
+                  example: 18
+                status:
+                  type: string
+                  description: Status.
+                  example: sit
+                products:
+                  type: array
+                  description: Products.
+                  example:
+                    - quo
+                  items:
+                    type: string
+              required:
+                - customer
+                - status
+                - products
+      security: []
+  '/api/orders/{order_id}/update':
+    put:
+      summary: 'Update an order.'
+      description: 'it is necessary that the user is the owner of the order'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Order updated successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Order updated successfully'
+      tags:
+        - Order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: integer
+                  description: 'Customer id.'
+                  example: 11
+                status:
+                  type: string
+                  description: 'Must be one of <code>pending</code>, <code>preparing</code>, <code>delivered</code>, or <code>cancelled</code>.'
+                  example: pending
+                products:
+                  type: array
+                  description: Products.
+                  example:
+                    - magni
+                  items:
+                    type: string
+              required:
+                - customer
+                - status
+                - products
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  '/api/orders/{order_id}/show':
+    get:
+      summary: 'Show a order'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 13
+                  customer_id: 11
+                  total_price: '160.70'
+                  status: delivered
+                  created_at: '2021-11-22T22:07:24.000000Z'
+                  updated_at: '2021-11-22T22:07:24.000000Z'
+                  products:
+                    -
+                      id: 3
+                      name: 'Caleb Schiller'
+                      price: '82.90'
+                      created_at: '2000-12-14T13:08:59.000000Z'
+                      updated_at: '1992-04-28T11:20:07.000000Z'
+                      pivot:
+                        order_id: 13
+                        product_id: 3
+                    -
+                      id: 4
+                      name: 'Dr. George Gibson'
+                      price: '77.80'
+                      created_at: '1977-07-28T16:27:53.000000Z'
+                      updated_at: '1970-08-09T03:56:21.000000Z'
+                      pivot:
+                        order_id: 13
+                        product_id: 4
+                properties:
+                  id:
+                    type: integer
+                    example: 13
+                  customer_id:
+                    type: integer
+                    example: 11
+                  total_price:
+                    type: string
+                    example: '160.70'
+                  status:
+                    type: string
+                    example: delivered
+                  created_at:
+                    type: string
+                    example: '2021-11-22T22:07:24.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2021-11-22T22:07:24.000000Z'
+                  products:
+                    type: array
+                    example:
+                      -
+                        id: 3
+                        name: 'Caleb Schiller'
+                        price: '82.90'
+                        created_at: '2000-12-14T13:08:59.000000Z'
+                        updated_at: '1992-04-28T11:20:07.000000Z'
+                        pivot:
+                          order_id: 13
+                          product_id: 3
+                      -
+                        id: 4
+                        name: 'Dr. George Gibson'
+                        price: '77.80'
+                        created_at: '1977-07-28T16:27:53.000000Z'
+                        updated_at: '1970-08-09T03:56:21.000000Z'
+                        pivot:
+                          order_id: 13
+                          product_id: 4
+                    items:
+                      type: object
+      tags:
+        - Order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: integer
+                  description: 'Customer id'
+                  example: 3
+              required:
+                - customer
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  '/api/orders/{order_id}/delete':
+    delete:
+      summary: 'Delete an order.'
+      description: 'it is necessary that the user is the owner of the order'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: integer
+                  description: 'Customer id.'
+                  example: 4
+              required:
+                - customer
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  /api/orders:
+    get:
+      summary: 'Show all orders.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"customer_id\": 2,\n            \"total_price\": \"77.80\",\n            \"status\": \"cancelled\",\n            \"created_at\": \"2019-07-11T15:27:06.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Morton Huel\"\n        },\n        {\n            \"id\": 2,\n            \"customer_id\": 3,\n            \"total_price\": \"53.59\",\n            \"status\": \"completed\",\n            \"created_at\": \"1977-01-06T00:23:43.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Prof. Florencio Green\"\n        },\n        {\n            \"id\": 3,\n            \"customer_id\": 4,\n            \"total_price\": \"67.05\",\n            \"status\": \"cancelled\",\n            \"created_at\": \"2003-10-13T20:04:42.000000Z\",\n            \"updated_at\": \"2021-11-22T18:48:27.000000Z\",\n            \"customer_name\": \"Merl Kiehn\"\n        },\n    ],\n    \"first_page_url\": \"http:\\/\\/127.0.0.1:8000\\/api\\/orders?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"http:\\/\\/127.0.0.1:8000\\/api\\/orders?page=1\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Anterior\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http:\\/\\/127.0.0.1:8000\\/api\\/orders?page=1\",\n            \"label\": \"1\",\n            \"active\": true\n        },\n        {\n            \"url\": null,\n            \"label\": \"Próximo &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": null,\n    \"path\": \"http:\\/\\/127.0.0.1:8000\\/api\\/orders\",\n    \"per_page\": 15,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 10\n}"
+      tags:
+        - Order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customer:
+                  type: integer
+                  description: 'Customer id'
+                  example: 11
+              required:
+                - customer
+      security: []
+tags:
+  -
+    name: Customer
+    description: ''
+  -
+    name: Order
+    description: ''
