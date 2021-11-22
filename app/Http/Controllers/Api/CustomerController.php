@@ -17,6 +17,15 @@ class CustomerController extends Controller
         $this->customerService = $customerService;
     }
 
+    /**
+     * Create a new customer
+     * @group Customer
+     * @bodyParam name string required The name of the customer.
+     * @bodyParam email string required The email of the customer.
+     * @bodyParam telephone string required The phone of the customer.
+     * @bodyParam address string required The address of the customer.
+     * @responseFile responses/customer/create.json
+     */
     public function create(CreateCustomerRequest $request)
     {
         $request->validated();
