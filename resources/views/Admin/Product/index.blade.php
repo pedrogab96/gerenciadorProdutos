@@ -1,7 +1,14 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <div class="d-flex justify-content-between">
+    @if (session('success'))
+        <div class="d-flex">
+            <div class="alert alert-success border-left-success d-flex" role="alert">
+                <span>{{ session('success') }}</span>
+            </div>
+        </div>
+    @endif
+    <div class="d-flex justify-content-between col-12 col-md-8">
         <h1>Produtos</h1>
         <div>
             <a class= 'btn btn-dark' href="{{route('admin.products.create')}}">Adicionar novo</a>
