@@ -14,6 +14,13 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
+    /**
+     * Show all orders.
+     * @group Order
+     * @bodyParam customer int required Customer id
+     * @responseFile storage/responses/order/index.json
+     */
+
     public function index(Request $request)
     {
         $request->validate([
@@ -23,6 +30,12 @@ class OrderController extends Controller
         $orders = $this->orderService->getOrders()->paginate();
         return response()->json($orders);
     }
+
+    /**
+     * Show a order
+     * @group Order
+     * @bodyParam customer int required Customer id
+    */
 
     public function show(Request $request, $order_id)
     {
@@ -34,6 +47,16 @@ class OrderController extends Controller
         return response()->json($order);
     }
 
+    /**
+     * Create a new order.
+     * @group Order
+     * @bodyParam customer int required Customer id.
+     * @bodyParam products array required Products.
+     * @bodyParam status string required Status.
+     * @bodyParam products[].id int required Product id.
+     * @responseFile storage/responses/order/create.json
+    */
+
     public function create(OrderRequest $request)
     {
         $request->validated();
@@ -41,6 +64,16 @@ class OrderController extends Controller
         $this->orderService->create($data);
         return response()->json(['message' => 'Order created successfully'], 200);
     }
+
+    /**
+     * Update an order.
+     * it is necessary that the user is the owner of the order
+     * @group Order
+     * @bodyParam customer int required Customer id.
+     * @bodyParam products array required Products.
+     * @bodyParam products[].id int required Product id.
+     * @responseFile storage/responses/order/update.json
+     */
 
     public function update(OrderRequest $request, $order_id)
     {
@@ -55,6 +88,14 @@ class OrderController extends Controller
         }
         return response()->json(['message' => 'it was not possible to update the order'], 404);
     }
+
+    /**
+     * Delete an order.
+     * it is necessary that the user is the owner of the order
+     * @group Order
+     * @bodyParam customer int required Customer id.
+     * @reponseFile storage/responses/order/delete.json
+     */
 
     public function delete(Request $request, $order_id)
     {
