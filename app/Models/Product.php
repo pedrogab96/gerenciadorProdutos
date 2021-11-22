@@ -13,6 +13,6 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->morphedByMany(Order::class, 'order_products');
+        return $this->belongsToMany(Order::class, 'order_products');
     }
 }
