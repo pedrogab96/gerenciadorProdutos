@@ -8,7 +8,7 @@
             </div>
         </div>
     @endif
-    <div class="d-flex justify-content-between col-12 col-md-8">
+    <div class="d-flex justify-content-between col-12">
         <h1>Produtos</h1>
         <div>
             <a class= 'btn btn-dark' href="{{route('admin.products.create')}}">Adicionar novo</a>

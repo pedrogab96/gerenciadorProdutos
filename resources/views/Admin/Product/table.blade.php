@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 col-md-10 card p-4">
+    <div class="col-12 card p-4">
         <div class="panel panel-default">
             <div class="panel-body">
                 <table class="table table-hover" id="datatable">
