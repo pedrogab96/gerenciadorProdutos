@@ -38,7 +38,7 @@ class ProductController extends Controller
             ->with('product', $product);
     }
 
-    public function update(Request $request, $product_id)
+    public function update(ProductRequest $request, $product_id)
     {
         $request->validated();
         $data = $request->except('_token', 'submit');
