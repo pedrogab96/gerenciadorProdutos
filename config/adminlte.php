@@ -240,12 +240,6 @@ return [
             'url'  => '/admin/produtos',
             'icon' => 'fas fa-box',
         ],
-        ['header' => 'CONTA'],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
     ],
 
     /*
